@@ -1,5 +1,9 @@
 # ytcomment_trends
 
+[![PyPI version](https://badge.fury.io/py/ytcomment-trends.svg)](https://badge.fury.io/py/ytcomment-trends)
+
+[![Python Versions](https://img.shields.io/pypi/pyversions/ytcomment-trends.svg)](https://pypi.org/project/ytcomment-trends/)
+
 ## Dependencies
 
 Before install this library, you need to install mecab for NLP.
