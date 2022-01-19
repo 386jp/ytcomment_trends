@@ -1,12 +1,11 @@
 import argparse
-import os
 import matplotlib.pyplot as plt
 from .main import CommentAnalyzer
 
 def entrypoint():
     """Entrypoint for the ytcomment_trends package
     """
-    parser = argparse.ArgumentParser(prog='ytcomment_trends', usage='ytcomment_trends -v pR2E2OatMTQ -t "./client_secret.json"', description='テストコードです')
+    parser = argparse.ArgumentParser(prog='ytcomment_trends', usage='ytcomment_trends -v pR2E2OatMTQ -t "./client_secret.json"', description='ytcomment_trends: YouTube comment trends analysis tool using oseti')
     parser.add_argument('-v', '--video_id', help='YouTube video id', type=str, required=True)
     parser.add_argument('-t', '--token', help='YouTube API token (json) file path', type=str, required=True)
     args = parser.parse_args()
