@@ -29,7 +29,7 @@ def entrypoint():
     oseti_scores = []
     for s, n in zip(list(ca_summarized['oseti_score']), list(ca_summarized['snippet.isPublic'])):
         if n > 0:
-            oseti_scores.append(s)
+            oseti_scores.append(s / n)
         else:
             oseti_scores.append(0)
 
