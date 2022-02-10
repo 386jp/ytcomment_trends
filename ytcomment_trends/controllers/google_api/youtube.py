@@ -13,7 +13,8 @@ def get_comments(api_service, video_id: str, next_page_token=None, output=[]) ->
     request = api_service.commentThreads().list(
         part="snippet",
         videoId=video_id,
-        pageToken=next_page_token
+        pageToken=next_page_token,
+        maxResults=100
     ).execute()
     for info in request["items"]:
         output.append(info)
