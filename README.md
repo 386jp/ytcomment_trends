@@ -18,7 +18,7 @@ brew install mecab mecab-ipadic
 
 ### Get YouTube API Client Secret
 
-Please refer to [Google's official documentation](https://developers.google.com/youtube/registering_an_application) for getting API keys. Make sure you create credentials with OAuth 2.0 Clients with type of "Desktop" app. Also, make sure you download JSON file to your local directory.
+Please refer to [Google's official documentation](https://developers.google.com/youtube/registering_an_application) for getting API keys. Make sure you create credentials with API Key (not OAuth 2.0 Client) with API restriction to the YouTube Data API.
 
 ### Run command
 
@@ -30,10 +30,10 @@ pip install ytcomment_trends
 
 If you are using virtual environment, please use the package manager of the virtual environment (e.g., `pipenv install`, `poetry add`).
 
-After installation, run this command to analyze video. Make sure to check credentials JSON file path and video ID.
+After installation, run this command to analyze video.
 
 ```
-ytcomment_trends -t "./client_secret.json" -v pR2E2OatMTQ
+ytcomment_trends -v pR2E2OatMTQ -k hogefuga
 ```
 
 If you are not sure about the arguments, run following command to check.

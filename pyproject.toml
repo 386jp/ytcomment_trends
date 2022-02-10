@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ytcomment_trends"
-version = "0.1.3"
+version = "0.1.5"
 description = "YouTube comment trends analysis tool using oseti"
 authors = ["Kyosuke Miyamura <ask@386.jp>"]
 homepage = "https://www.386.jp/works/ytcomment_trends"
