@@ -8,14 +8,13 @@ def entrypoint():
     parser = argparse.ArgumentParser(prog='ytcomment_trends', usage='ytcomment_trends -v pR2E2OatMTQ -k hogefuga', description='ytcomment_trends: YouTube comment trends analysis tool using oseti')
     parser.add_argument('-v', '--video_id', help='YouTube video id', type=str, required=True)
     parser.add_argument('-k', '--key', help='YouTube API key', type=str, required=True)
+    parser.add_argument('-s', '--summarized_in', help='Summarized in (W: week, D: day). Please refer to the Pandas documentation for more information. Default: W', type=str, required=False, default="W")
     args = parser.parse_args()
-
-    print(args.key)
 
     ca = CommentAnalyzer(args.video_id, args.key)
     ca_comments, _ = ca.get_comments()
     ca_analyzed = ca.get_analyzed_comments(ca_comments)
-    ca_summarized = ca.get_summarized_comments(ca_analyzed)
+    ca_summarized = ca.get_summarized_comments(ca_analyzed, summarized_in=args.summarized_in)
 
     fig, ax1 = plt.subplots()
     t = ca_summarized.keys()

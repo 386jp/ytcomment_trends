@@ -56,7 +56,7 @@ class CommentAnalyzer:
         df = pd.json_normalize(comments)
         df['snippet.topLevelComment.snippet.publishedAt'] = pd.to_datetime(df['snippet.topLevelComment.snippet.publishedAt'])
         df = df.set_index('snippet.topLevelComment.snippet.publishedAt')
-        ca_summarized = df.resample(summarized_in).sum()
+        ca_summarized = df.resample(summarized_in, label="left").sum()
         dts = [dt.astype('datetime64[D]').astype(datetime.datetime) for dt in list(ca_summarized.index.values)]
         oseti_scores = []
         for s, n in zip(list(ca_summarized['oseti_score']), list(ca_summarized['snippet.isPublic'])):
