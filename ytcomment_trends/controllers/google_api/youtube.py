@@ -1,6 +1,6 @@
 from typing import List, Dict
 
-def get_comments(api_service, video_id: str, next_page_token=None, output=[]) -> tuple[List[Dict], str]:
+def get_comments(api_service, video_id: str, next_page_token=None, output=[]) -> List[Dict]:
     """get YouTube comments for video
 
     Args:
@@ -21,6 +21,6 @@ def get_comments(api_service, video_id: str, next_page_token=None, output=[]) ->
     try:
         next_page_token = request["nextPageToken"]
     except:
-        return output, next_page_token
+        return output
     else:
         return get_comments(api_service, video_id, next_page_token, output)

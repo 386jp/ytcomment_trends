@@ -18,7 +18,7 @@ class CommentAnalyzer:
         self.api_token_obj = GoogleAPIAuth(api_key).get_authenticated_service()
         self.next_page_token = next_page_token
 
-    def get_comments(self) -> tuple[List[Dict], str]:
+    def get_comments(self) -> List[Dict]:
         """get comments from video
 
         Returns:
@@ -64,4 +64,5 @@ class CommentAnalyzer:
                 oseti_scores.append(s / n)
             else:
                 oseti_scores.append(0)
+        print(dts)
         return {k: {"oseti_score": v, "comments": c} for k, v, c in zip(dts, oseti_scores, ca_summarized['snippet.isPublic'])}

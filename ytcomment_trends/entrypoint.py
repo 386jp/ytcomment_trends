@@ -12,7 +12,7 @@ def entrypoint():
     args = parser.parse_args()
 
     ca = CommentAnalyzer(args.video_id, args.key)
-    ca_comments, _ = ca.get_comments()
+    ca_comments = ca.get_comments()
     ca_analyzed = ca.get_analyzed_comments(ca_comments)
     ca_summarized = ca.get_summarized_comments(ca_analyzed, summarized_in=args.summarized_in)
 
