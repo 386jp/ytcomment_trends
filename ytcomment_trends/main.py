@@ -13,10 +13,9 @@ class CommentAnalyzer:
         api_key (str): YouTube API key (make sure to enable YouTube Data API V3)
     """
 
-    def __init__(self, video_id: str, api_key: str, next_page_token: str=None):
+    def __init__(self, video_id: str, api_key: str):
         self.video_id = video_id
         self.api_token_obj = GoogleAPIAuth(api_key).get_authenticated_service()
-        self.next_page_token = next_page_token
 
     def get_comments(self) -> List[Dict]:
         """get comments from video
@@ -24,7 +23,7 @@ class CommentAnalyzer:
         Returns:
             List[Dict]: comments
         """
-        return get_comments(self.api_token_obj, self.video_id, next_page_token=self.next_page_token)
+        return get_comments(self.api_token_obj, self.video_id)
 
     def get_analyzed_comments(self, comments: List[Dict]) -> List[Dict]:
         """add oseti score
